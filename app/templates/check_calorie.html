@@ -1,0 +1,37 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container-fluid">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Check Calorie</legend>
+            <div class="form-group">
+                {{ form.picture.label() }}
+                {{ form.picture(class="form-control-file") }}
+                {% if form.picture.errors %}
+                {% for error in form.picture.errors %}
+                <span class="text-danger"> {{error}} </span></br>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% if p_class!=None %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{p_img}}" alt="Card image cap">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{p_class}}</h5>
+                    <p class="card-text">{{your_cal}} calories</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

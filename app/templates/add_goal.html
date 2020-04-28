@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.weight.label(class="form-control-label") }}
+                {% if form.weight.errors%}
+                {{ form.weight(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.weight.errors %}
+                    <span> {{error}} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.weight(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.days.label(class="form-control-label") }}
+                {% if form.days.errors%}
+                {{ form.days(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.days.errors %}
+                    <span> {{error}} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.days(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.start_date.label(class="form-control-label") }}
+                <br>
+                {{ form.start_date(class="form-control-date") }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

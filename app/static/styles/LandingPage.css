@@ -49,23 +49,23 @@ html, body {
   
   /* add images */
   .slideshow li:nth-child(1) { 
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKkiEIaIpc03qY8j9kDMMJtqT4YGpYUaIUwKe4Eqv9O9ucI_S)
+    background-image: url(https://images.unsplash.com/photo-1523634700860-90d0ef74f137?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
   }
   .slideshow li:nth-child(2) { 
-    background-image: url(https://www.crazymasalafood.com/wp-content/images/college-of-vocational-studies-595x352.jpg);
-    animation-delay: 3s; 
+    background-image: url(https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 2s; 
   }
   .slideshow li:nth-child(3) { 
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDfJ-KtEzwHCkBoOClLhRWWj3KsK3u41Laej0EHIc9QSesIgmu);
-    animation-delay: 6s; 
+    background-image: url(https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 4s; 
   }
   .slideshow li:nth-child(4) { 
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRViBAmc2U4yRnOQAYgqnf1xbcJeHwcNrSO0iTlvLNDuxnGUXpM);
-    animation-delay: 9s; 
+    background-image: url(https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 6s; 
   }
   .slideshow li:nth-child(5) { 
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSltkpbnn6TMpzmrgE1D9cfFjhD0O8NQ6cAaJ4x45QXRrKZHNSc)
-    animation-delay: 12s; 
+    background-image: url(https://images.unsplash.com/photo-1542692422-5cb6fc2cf737?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 8s; 
   }
 
   /* add keyframes animation */

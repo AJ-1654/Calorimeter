@@ -1,0 +1,61 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container-fluid">
+    <a class="btn btn-secondary m-2" href="{{ url_for('display_goal') }}">Back</a>
+</div>
+{% if days[0] %}
+<div class="container-fluid">
+    <ul class="list-group">
+        {% for day in days %}
+        <div class="font-weight-bold mt-2 mb-2">
+            {{day.day_date.strftime('%d-%m-%Y')}}
+        </div>
+        <div class="row">
+            <div class="media mr-auto">
+                <img class="rounded account-img" src="{{ url_for('static', filename='food_pics/' +
+                day.breakfast_img_file)}}">
+                <div class="media-body">
+                    <h2 class="account-heading">Breakfast</h2>
+                    <p class="text-secondary">{{ p_class1 }}</p>
+                    <p class="text-secondary">{{day.breakfast}} Calories</p>
+                </div>
+            </div>
+            <div class="media mr-auto">
+                <img class="rounded account-img" src="{{ url_for('static', filename='food_pics/' +
+                day.lunch_img_file)}}">
+                <div class="media-body">
+                    <h2 class="account-heading">Lunch</h2>
+                    <p class="text-secondary">{{day.lunch}} Calories</p>
+                </div>
+            </div>
+            <div class="media mr-auto">
+                <img class="rounded account-img" src="{{ url_for('static', filename='food_pics/' +
+                day.dinner_img_file)}}">
+                <div class="media-body">
+                    <h2 class="account-heading">Dinner</h2>
+                    <p class="text-secondary">{{day.dinner}} Calories</p>
+                </div>
+            </div>
+            <div class="mr-auto">
+                <div style="width: 10rem;">
+                    <h4>{{ (day.breakfast + day.lunch + day.dinner) }}
+                        Calories Consumed today </h4>
+                    {% if (day.breakfast + day.lunch + day.dinner) > (2250 - (7000*goal.weight)/goal.days)|round()|int() %}
+                        <h4>You have exceeded your daily calorie limit! Burn {{ (day.breakfast + day.lunch + day.dinner) - (2250 - (7000*goal.weight)/goal.days)|round()|int() }} calories to stay on track</h4>
+                    {% else %}
+                        <h4>Your calorie intake is well within the limits!! Keep it up and get in shape fast</h4>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+<div class="container-fluid">
+    <div class="row">
+        <h2>No record</h2>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

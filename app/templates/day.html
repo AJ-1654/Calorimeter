@@ -1,0 +1,90 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container">
+    {% if diff+1 > goal.days %}
+    <div class="row">
+        <h2>The plan has ended</h2>
+    </div>
+    {% elif diff >=0 %}
+    <div class="row mt-1 mb-1">
+        <h2 class="m-2">Day {{diff+1}} of {{goal.days}}</h2>
+        <a class="btn btn-secondary m-2" href="{{ url_for('display_goal') }}">Back</a>
+    </div>
+    <div div class="row text-center" style="display: flex; flex-wrap:wrap">
+        <div class="media mr-auto">
+            <img class="rounded account-img" src="{{ b_img }}">
+            <div class="media-body">
+                <h3 class="account-heading">Breakfast</h3>
+                <p class="text-secondary">{{day.breakfast}} Calories</p>
+            </div>
+        </div>
+        <div class="media mr-auto">
+            <img class="rounded account-img" src="{{ l_img }}">
+            <div class="media-body">
+                <h3 class="account-heading">Lunch</h3>
+                <p class="text-secondary">{{day.lunch}} Calories</p>
+            </div>
+        </div>
+        <div class="media mr-auto">
+            <img class="rounded account-img" src="{{ d_img }}">
+            <div class="media-body">
+                <h3 class="account-heading">Dinner</h3>
+                <p class="text-secondary">{{day.dinner}} Calories</p>
+            </div>
+        </div>
+        <div class="media mr-auto">
+            <div style="width: 10rem;">
+                <h4>Burn {{((7000*goal.weight)/goal.days)|round()|int() + day.breakfast + day.lunch + day.dinner}}
+                    Calories today to stay on Track</h4>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add Meal</legend>
+            <div class="form-group">
+                {{ form.breakfast_pic.label() }}
+                {{ form.breakfast_pic(class="form-control-file") }}
+                {% if form.breakfast_pic.errors %}
+                {% for error in form.breakfast_pic.errors %}
+                <span class="text-danger"> {{error}} </span></br>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.lunch_pic.label() }}
+                {{ form.lunch_pic(class="form-control-file") }}
+                {% if form.lunch_pic.errors %}
+                {% for error in form.lunch_pic.errors %}
+                <span class="text-danger"> {{error}} </span></br>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.dinner_pic.label() }}
+                {{ form.dinner_pic(class="form-control-file") }}
+                {% if form.dinner_pic.errors %}
+                {% for error in form.dinner_pic.errors %}
+                <span class="text-danger"> {{error}} </span></br>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% else %}
+    <div class="row">
+        <h2>The Plan has not started yet!</h2>
+    </div>
+    <div class="row">
+        <h2>Starting on {{goal.start_date.strftime('%d-%m-%Y')}}</h2>
+    </div>
+    <div class="row">
+        <a class="btn btn-secondary btn-sm m-1" href="{{ url_for('display_goal') }}">Back</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
