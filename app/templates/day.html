@@ -1,6 +1,6 @@
 {% extends "header.html" %}
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     {% if diff+1 > goal.days %}
     <div class="row">
         <h2>The plan has ended</h2>
@@ -10,7 +10,7 @@
         <h2 class="m-2">Day {{diff+1}} of {{goal.days}}</h2>
         <a class="btn btn-secondary m-2" href="{{ url_for('display_goal') }}">Back</a>
     </div>
-    <div div class="row text-center" style="display: flex; flex-wrap:wrap">
+    <div class="row">
         <div class="media mr-auto">
             <img class="rounded account-img" src="{{ b_img }}">
             <div class="media-body">
@@ -32,10 +32,11 @@
                 <p class="text-secondary">{{day.dinner}} Calories</p>
             </div>
         </div>
-        <div class="media mr-auto">
+
+        <div class="mr-auto">
             <div style="width: 10rem;">
-                <h4>Burn {{((7000*goal.weight)/goal.days)|round()|int() + day.breakfast + day.lunch + day.dinner}}
-                    Calories today to stay on Track</h4>
+                <h4>{{ (day.breakfast + day.lunch + day.dinner) }} of {{2250 - (7000*goal.weight/goal.days)|round()|int()}}
+                    Calories Consumed today </h4>
             </div>
         </div>
     </div>

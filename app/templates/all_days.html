@@ -39,12 +39,12 @@
             <div class="mr-auto">
                 <div style="width: 10rem;">
                     <h4>{{ (day.breakfast + day.lunch + day.dinner) }}
-                        Calories Consumed today </h4>
-                    {% if (day.breakfast + day.lunch + day.dinner) > (2250 - (7000*goal.weight)/goal.days)|round()|int() %}
+                        Calories Consumed </h4>
+                   <!-- {% if (day.breakfast + day.lunch + day.dinner) > (2250 - (7000*goal.weight)/goal.days)|round()|int() %}
                         <h4>You have exceeded your daily calorie limit! Burn {{ (day.breakfast + day.lunch + day.dinner) - (2250 - (7000*goal.weight)/goal.days)|round()|int() }} calories to stay on track</h4>
                     {% else %}
                         <h4>Your calorie intake is well within the limits!! Keep it up and get in shape fast</h4>
-                    {% endif %}
+                    {% endif %} -->
                 </div>
             </div>
         </div>

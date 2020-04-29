@@ -32,12 +32,12 @@ class Day(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     breakfast = db.Column(db.Integer, nullable=False, default=0)
     breakfast_img_file = db.Column(db.String(20), nullable=False,
-                                   default='default.jpeg')
+                                   default='default.jpg')
     lunch = db.Column(db.Integer, nullable=False, default=0)
     lunch_img_file = db.Column(db.String(20), nullable=False,
-                               default='default.jpeg')
+                               default='default.jpg')
     dinner = db.Column(db.Integer, nullable=False, default=0)
     dinner_img_file = db.Column(db.String(20), nullable=False,
-                                default='default.jpeg')
+                                default='default.jpg')
     day_date = db.Column(db.Date, nullable=False, default=date.today())
     goal_id = db.Column(db.Integer, db.ForeignKey('goal.id'), nullable=False)
